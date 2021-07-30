@@ -5,7 +5,7 @@ const { signup } = require("../controller/user.controller");
 const router = express.Router();
 const User = require("../models/user_model");
 
-router.post("/signup", signup);
+router.post("/signup", signup); // signup function is completed.
 
 router.post("/signin", (req, res) => {
   console.log("signin");
