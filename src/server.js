@@ -1,6 +1,6 @@
 const express = require("express");
 const env = require("dotenv");
-// const bodyParser = require("body-parser"); this dev dependancy is depricated.
+// const bodyParser = require("body-parser"); //this dev dependancy is depricated.
 const app = express();
 const mongoose = require("mongoose");
 
@@ -27,7 +27,8 @@ mongoose
   });
 
 //adding a middleware to send data
-app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json({ extended: true }));
 app.use("/api", userRoutes);
 
 app.get("/", (req, res, next) => {
@@ -36,11 +37,11 @@ app.get("/", (req, res, next) => {
   });
 });
 
-// making post request
+// making post request or creating the user
 
 app.post("/data", (req, res, next) => {
   res.status(200).json({
-    message: req.body,
+    message: res.body,
   });
 });
 

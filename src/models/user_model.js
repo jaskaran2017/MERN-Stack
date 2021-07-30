@@ -1,3 +1,5 @@
+//user model is use to define user and the field to obtain the required info about the user.
+
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 
