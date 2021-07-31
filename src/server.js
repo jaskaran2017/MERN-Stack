@@ -5,7 +5,7 @@ const app = express();
 const mongoose = require("mongoose");
 
 // routes
-const userRoutes = require("./routes/users");
+const authRoutes = require("./routes/authRoute");
 
 // calling environment variables or constants here
 env.config();
@@ -29,7 +29,7 @@ mongoose
 //adding a middleware to send data
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json({ extended: true }));
-app.use("/api", userRoutes);
+app.use("/api", authRoutes);
 
 app.get("/", (req, res, next) => {
   res.status(200).json({
